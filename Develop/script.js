@@ -57,7 +57,7 @@ function getRandomSymbol() {
     return String.fromCharCode(Math.floor(Math.random() * 15) + 33);
 };
 /* Generator functions end */
-
+// all chracter code from: https://net-coder.com/charset.html
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -72,5 +72,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-// all chracter code from: https://net-coder.com/charset.html
