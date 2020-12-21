@@ -26,12 +26,15 @@ function generatePassword() {
         if (lowercaseConfirm) {
             newPassword += getRandomLower(allowed.lowercaseConfirm);
         }
+        if (newPassword.length >= howlong) break;
         if (uppercaseConfirm) {
             newPassword += getRandomUpper(allowed.uppercaseConfirm);
         }
+        if (newPassword.length >= howlong) break;
         if (numbersConfirm) {
             newPassword += getRandomNumber(allowed.numbersConfirm);
         }
+        if (newPassword.length >= howlong) break;
         if (symbolsConfirm) {
             newPassword += getRandomSymbol(allowed.symbolsConfirm);
         }
@@ -69,3 +72,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+// all chracter code from: https://net-coder.com/charset.html
