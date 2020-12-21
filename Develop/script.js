@@ -18,6 +18,42 @@ while (!(lowercaseConfirm || uppercaseConfirm || numbersConfirm || symbolsConfir
 };
 /* User prompts end */
 
+function generatePassword() {
+    var newPassword = "";
+    var allowed = [];
+
+    while (newPassword.length < howlong) {
+        if (lowercaseConfirm) {
+            newPassword += getRandomLower(allowed.lowercaseConfirm);
+        }
+        if (uppercaseConfirm) {
+            newPassword += getRandomUpper(allowed.uppercaseConfirm);
+        }
+        if (numbersConfirm) {
+            newPassword += getRandomNumber(allowed.numbersConfirm);
+        }
+        if (symbolsConfirm) {
+            newPassword += getRandomSymbol(allowed.symbolsConfirm);
+        }
+    }
+
+    return newPassword;
+};
+
+/* Generator functions */
+function getRandomLower() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+};
+function getRandomUpper() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+};
+function getRandomNumber() {
+    return Math.floor(Math.random() * 9);
+};
+function getRandomSymbol() {
+    return String.fromCharCode(Math.floor(Math.random() * 15) + 33);
+};
+/* Generator functions end */
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
